@@ -47,11 +47,6 @@ bin/console doctrine:migrations:migrate
 
 ### Udostępnione porty
 
-***Aplikacja powinna być dostępna pod:***
-```
-http://localhost:8080
-```
-
 ***Podgląd do api jest dostępny pod:***
 ```
 http://localhost:8080/api
