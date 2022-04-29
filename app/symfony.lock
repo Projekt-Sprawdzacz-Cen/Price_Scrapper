@@ -1,4 +1,7 @@
 {
+    "dbrekelmans/bdi": {
+        "version": "1.0"
+    },
     "php-webdriver/webdriver": {
         "version": "1.12.0"
     },
