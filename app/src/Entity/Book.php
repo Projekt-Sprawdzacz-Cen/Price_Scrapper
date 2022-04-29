@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use App\Repository\BookRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
+#[ApiResource]
 class Book
 {
     #[ORM\Id]
@@ -21,6 +23,9 @@ class Book
 
     #[ORM\Column(type: 'decimal', precision: 10, scale: 2)]
     private $price;
+
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $last_update_at;
 
     public function getId(): ?int
     {
@@ -59,6 +64,18 @@ class Book
     public function setPrice(string $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getLastUpdateAt(): ?\DateTimeImmutable
+    {
+        return $this->last_update_at;
+    }
+
+    public function setLastUpdateAt(\DateTimeImmutable $last_update_at): self
+    {
+        $this->last_update_at = $last_update_at;
 
         return $this;
     }

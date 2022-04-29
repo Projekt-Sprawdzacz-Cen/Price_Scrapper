@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use App\Repository\ReviewRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 #[ORM\Entity(repositoryClass: ReviewRepository::class)]
+#[ApiResource]
 class Review
 {
     #[ORM\Id]
@@ -16,14 +18,22 @@ class Review
     #[ORM\Column(type: 'string', length: 255)]
     private $text;
 
-    #[ORM\Column(type: 'integer')]
-    private $user_id;
+    #[ORM\ManyToOne(targetEntity: Users::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private $user;
 
     #[ORM\Column(type: 'integer')]
     private $rating;
 
-    #[ORM\Column(type: 'integer')]
-    private $book_id;
+    #[ORM\ManyToOne(targetEntity: Book::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private $book;
+
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $created_at;
+
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private $last_edit;
 
     public function getId(): ?int
     {
@@ -74,6 +84,30 @@ class Review
     public function setBookId(int $book_id): self
     {
         $this->book_id = $book_id;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getLastEdit(): ?\DateTimeImmutable
+    {
+        return $this->last_edit;
+    }
+
+    public function setLastEdit(?\DateTimeImmutable $last_edit): self
+    {
+        $this->last_edit = $last_edit;
 
         return $this;
     }
