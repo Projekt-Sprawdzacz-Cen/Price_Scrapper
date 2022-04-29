@@ -3,7 +3,7 @@
 This project was created for the purpose of passing ZMP course (Zaawansowane metody
 programowania - Advanced methods of programming)
 
-###Author:
+### Author:
 * Jakub Engielski
 
 ### Technologies
