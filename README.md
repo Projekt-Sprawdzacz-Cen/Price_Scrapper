@@ -52,6 +52,11 @@ bin/console doctrine:migrations:migrate
 http://localhost:8080/api
 ```
 
+***Menu do dodawania źródeł dostępne pod***
+```
+http://localhost:8080/admin
+```
+
 ***phpMyAdmin powinien być dostępny pod:***
 ```
 http://localhost:8081
