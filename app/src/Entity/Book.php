@@ -8,7 +8,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 #[ApiResource]
-class Book
+class Book implements \JsonSerializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -78,5 +78,15 @@ class Book
         $this->last_update_at = $last_update_at;
 
         return $this;
+    }
+    public function jsonSerialize()
+    {
+        return [
+            'id'=>$this->getId(),
+            'title' => $this->getTitle(),
+            'author' => $this->getAuthor(),
+            'price' => $this->getPrice(),
+            'last_update_at' => $this->getLastUpdateAt(),
+        ];
     }
 }

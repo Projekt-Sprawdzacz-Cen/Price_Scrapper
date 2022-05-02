@@ -94,6 +94,19 @@
     "doctrine/sql-formatter": {
         "version": "1.1.2"
     },
+    "easycorp/easyadmin-bundle": {
+        "version": "2.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.0",
+            "ref": "0a51040a43c6f2172a3a0135cd15daf2043905d7"
+        },
+        "files": [
+            "config/packages/easy_admin.yaml",
+            "config/routes/easy_admin.yaml"
+        ]
+    },
     "fig/link-util": {
         "version": "1.2.0"
     },
@@ -117,6 +130,9 @@
     },
     "nikic/php-parser": {
         "version": "v4.13.2"
+    },
+    "pagerfanta/pagerfanta": {
+        "version": "v2.7.3"
     },
     "php-webdriver/webdriver": {
         "version": "1.12.0"
@@ -144,6 +160,18 @@
     },
     "psr/log": {
         "version": "2.0.0"
+    },
+    "sensio/framework-extra-bundle": {
+        "version": "6.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.2",
+            "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
+        },
+        "files": [
+            "config/packages/sensio_framework_extra.yaml"
+        ]
     },
     "symfony/asset": {
         "version": "v5.3.14"
@@ -217,6 +245,9 @@
             ".env"
         ]
     },
+    "symfony/form": {
+        "version": "v5.3.14"
+    },
     "symfony/framework-bundle": {
         "version": "5.3",
         "recipe": {
@@ -257,6 +288,9 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/options-resolver": {
+        "version": "v5.3.14"
+    },
     "symfony/panther": {
         "version": "2.0",
         "recipe": {
@@ -270,6 +304,9 @@
         "version": "v5.3.14"
     },
     "symfony/polyfill-intl-grapheme": {
+        "version": "v1.25.0"
+    },
+    "symfony/polyfill-intl-icu": {
         "version": "v1.25.0"
     },
     "symfony/polyfill-intl-normalizer": {
@@ -350,6 +387,19 @@
     },
     "symfony/string": {
         "version": "v5.3.14"
+    },
+    "symfony/translation": {
+        "version": "5.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.3",
+            "ref": "da64f5a2b6d96f5dc24914517c0350a5f91dee43"
+        },
+        "files": [
+            "config/packages/translation.yaml",
+            "translations/.gitignore"
+        ]
     },
     "symfony/translation-contracts": {
         "version": "v2.5.1"
