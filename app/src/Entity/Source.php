@@ -34,6 +34,7 @@ class Source implements SourceInterface
     #[ORM\Column(type: 'string', length: 255)]
     private $priceSelector;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -110,4 +111,6 @@ class Source implements SourceInterface
 
         return $this;
     }
+
+
 }

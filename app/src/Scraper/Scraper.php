@@ -32,6 +32,8 @@ class Scraper
                 $price = $c->filter($source->getPriceSelector())->text();
                 $price = intval(str_replace( '.', '', $price ));
                 $book->setPrice($price);
+                $sourceid = $source;
+                $book->setSource($sourceid);
                 $collection[] = $book;
 
 

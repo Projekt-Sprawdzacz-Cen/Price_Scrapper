@@ -30,6 +30,12 @@ class Book implements \JsonSerializable
     #[ORM\Column(type: 'datetime_immutable')]
     private $last_update_at;
 
+    #[ORM\ManyToOne(targetEntity: Source::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private $source;
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -82,13 +88,30 @@ class Book implements \JsonSerializable
 
         return $this;
     }
+
+
     public function jsonSerialize()
     {
         return [
             'title' => $this->getTitle(),
             'author' => $this->getAuthor(),
             'price' => $this->getPrice(),
+            'source' => $this->getSource(),
             'last_update_at' => $this->getLastUpdateAt(),
         ];
     }
+
+    public function getSource(): ?Source
+    {
+        return $this->source;
+    }
+
+    public function setSource(?Source $source): self
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
+
 }

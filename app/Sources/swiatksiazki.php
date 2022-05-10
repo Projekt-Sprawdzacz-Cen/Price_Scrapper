@@ -41,6 +41,4 @@ class swiatksiazki implements SourceInterface
 
 
 
-
-
 }
