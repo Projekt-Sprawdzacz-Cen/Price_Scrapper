@@ -29,7 +29,8 @@ class Scraper
                 $book->setLastUpdateAt($date);
                 $author = $c->filter($source->getAuthorSelector())->text();
                 $book->setAuthor($author);
-                $price = $c->filter($source->getPriceSelector())->attr('data-price-amount');
+                $price = $c->filter($source->getPriceSelector())->text();
+                $price = intval(str_replace( '.', '', $price ));
                 $book->setPrice($price);
                 $collection[] = $book;
 

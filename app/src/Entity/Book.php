@@ -6,13 +6,16 @@ use App\Repository\BookRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
+
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 #[ApiResource]
+
 class Book implements \JsonSerializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[ApiProperty(identifier: true)]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -82,7 +85,6 @@ class Book implements \JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'id'=>$this->getId(),
             'title' => $this->getTitle(),
             'author' => $this->getAuthor(),
             'price' => $this->getPrice(),
