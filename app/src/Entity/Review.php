@@ -25,15 +25,15 @@ class Review
     #[ORM\Column(type: 'integer')]
     private $rating;
 
-    #[ORM\ManyToOne(targetEntity: Book::class)]
-    #[ORM\JoinColumn(nullable: false)]
-    private $book;
-
     #[ORM\Column(type: 'datetime_immutable')]
     private $created_at;
 
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private $last_edit;
+
+    #[ORM\ManyToOne(targetEntity: Source::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private $Shop;
 
     public function getId(): ?int
     {
@@ -76,17 +76,7 @@ class Review
         return $this;
     }
 
-    public function getBookId(): ?int
-    {
-        return $this->book_id;
-    }
 
-    public function setBookId(int $book_id): self
-    {
-        $this->book_id = $book_id;
-
-        return $this;
-    }
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -108,6 +98,18 @@ class Review
     public function setLastEdit(?\DateTimeImmutable $last_edit): self
     {
         $this->last_edit = $last_edit;
+
+        return $this;
+    }
+
+    public function getShop(): ?Source
+    {
+        return $this->Shop;
+    }
+
+    public function setShop(?Source $Shop): self
+    {
+        $this->Shop = $Shop;
 
         return $this;
     }
