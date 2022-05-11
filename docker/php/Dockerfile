@@ -23,3 +23,6 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 RUN git config --global user.email "jakub5pl@gmail.com" \
     && git config --global user.name "Jakub Engielski"
+
+RUN apt-get install -y chromium
+RUN apt-get install -y cron
