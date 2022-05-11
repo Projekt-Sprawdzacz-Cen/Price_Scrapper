@@ -26,3 +26,4 @@ RUN git config --global user.email "jakub5pl@gmail.com" \
 
 RUN apt-get install -y chromium
 RUN apt-get install -y cron
+RUN apt-get install -y nano
